@@ -9,7 +9,7 @@ void printf(char* str)
         
 }
 
-exern "C" void kernalMain(void * multiboot_structure, unsigned int magicnumber)
+extern "C" void kernalMain(void * multiboot_structure, unsigned int magicnumber)
 {
     printf("Hello MashWareOS kernal ! --- http://");
     while(1);
