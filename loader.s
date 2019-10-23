@@ -17,8 +17,8 @@ loader:
     
     call callConstructors
     
-    push %rax
-    push %rbx
+    push %eax
+    push %ebx
     call kernelMain
 
 _stop:

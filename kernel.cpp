@@ -1,6 +1,9 @@
+
+#include "types.h"
+
 void printf(char* str)
 {
-    unsigned short* VideoMemory = (unsigned short*)0xb8000;
+    static uint16_t* VideoMemory = (uint16_t*)0xb8000;
     
     for(int i = 0; str[i] !='\0'; ++i)
     {
@@ -14,11 +17,12 @@ extern "C" constructor start_ctors;
 extern "C" constructor end_ctors;
 extern "C" void callConstructors()
 {
-    for(constructor* i =&start_ctors; i != end_ctors;i++)
+    for(constructor* i =&start_ctors; i != &end_ctors;i++)
         (*i)();
 }
 
-extern "C" void kernelMain(void * multiboot_structure, unsigned int magicnumber)
+
+extern "C" void kernelMain(void * multiboot_structure, uint32_t)
 {
     printf("Hello MashWareOS kernal ! --- http://");
     while(1);

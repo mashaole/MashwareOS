@@ -26,5 +26,11 @@ MashwareOS.iso:MashwareOS.bin
 	echo '' >> iso/boot/grub/grub.cfg
 	echo 'menuentry "My Operating System" {' >> iso/boot/grub/grub.cfg
 	echo '	multiboot /boot/MashwareOS.bin' >> iso/boot/grub/grub.cfg
-	echo 'boot' >> iso/boot/grub/grub.cfg
+	echo '	boot' >> iso/boot/grub/grub.cfg
 	echo '}' >> iso/boot/grub/grub.cfg
+	grub-mkrescue --output=$@ iso
+	rm -rf iso
+	
+run: MashwareOS.iso
+	(killall VirtualBox && sleep 1) || true
+	VirtualBox --startvm "MashwareOS" &
