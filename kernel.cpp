@@ -1,5 +1,6 @@
 
 #include "types.h"
+#include "gdt.h"
 
 void printf(char* str)
 {
@@ -22,8 +23,10 @@ extern "C" void callConstructors()
 }
 
 
-extern "C" void kernelMain(void * multiboot_structure, uint32_t)
+extern "C" void kernelMain(void * multiboot_structure, uint32_t /*multiboot_magic*/)
 {
     printf("Hello MashWareOS kernal ! --- http://");
+    
+    GlobalDescriptorTable gdt;
     while(1);
 }
