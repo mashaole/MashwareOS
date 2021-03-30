@@ -1,2 +1,4 @@
 # MashwareOS
-A open source experimental operating system +experiment+
+A open source experimental operating system experiment
+
+#Will Continue from December 2021
